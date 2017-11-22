@@ -30,7 +30,73 @@ These are some general rules that should allways apply
   .TOOLTIPHEADER
   $defaultFontPath
   ```
-- 
+- Do not use id selectors:
+```sass
+// Don't
+#sidebar-tooltip {
+  background: $light-blue;
+}
+```
+- Put a space after the selectors name and after the property : character
+- Put the closing braces on a new line
+- Seperate rule sections with a blank line
+
+```sass
+.selector-name {
+  some-css-property: some-value;
+}
+
+.next-selector-name {
+  some-css-property: some-value;
+}
+```
+
+- Prefer nesting instead of flat css:
+```scss
+// Don't
+.card-header .card-controls {
+  margin-left: auto;
+}
+.card-header .card-icons {
+  font-size: 1.2rem;
+}
+// Do
+.card-header {
+  .card-controls {
+    margin-left: auto;
+  }
+  .card-icons {
+    font-size: 1.2rem;
+  }
+}
+```
+- Aim not to nest more than 3 levels deep:
+```scss
+// Don't
+.card-body {
+  .card-content {
+    .card-inner {
+      .card-header {
+        .card-icon {
+```
+
+- When using multiple selectors, give each selector its own line.
+```scss
+// Don't
+.card-outline-primary, .card-outline-secondary, .card-outline-success, .card-outline-info, .card-outline-warning, .card-outline-danger {
+  border: 0px;
+}
+
+// Do
+.card-outline-primary,
+.card-outline-secondary,
+.card-outline-success,
+.card-outline-info,
+.card-outline-warning,
+.card-outline-danger {
+  border: 0px;
+}
+```
 
 ## Architecture
 One of the important advantages of Sass is the ability to split our code into modules.
